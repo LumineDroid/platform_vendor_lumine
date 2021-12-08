@@ -698,4 +698,7 @@
     <string name="config_headlineFontFamily">google-sans</string>
     <string name="config_headlineFontFamilyMedium">google-sans-medium</string>
     <string name="config_headlineFontFeatureSettings">ss03</string>
+
+    <!-- Suppress Intent Filter Verification Service crashes -->
+    <string translatable="false" name="config_appsNotReportingCrashes">com.android.statementservice</string>
 </resources>
