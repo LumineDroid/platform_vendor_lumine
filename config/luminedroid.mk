@@ -1,3 +1,6 @@
+# Bootanimation
+include vendor/lineage/config/bootanimation.mk
+
 # Enable blur
 TARGET_ENABLE_BLUR ?= true
 ifeq ($(TARGET_ENABLE_BLUR),true)
