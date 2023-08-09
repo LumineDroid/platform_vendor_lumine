@@ -108,7 +108,6 @@ PRODUCT_COPY_FILES += \
 
 # Config
 PRODUCT_PACKAGES += \
-    SimpleDeviceConfig \
     SimpleSettingsConfig
 
 # Extra tools
