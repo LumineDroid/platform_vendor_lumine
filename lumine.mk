@@ -25,6 +25,10 @@ endif
 PRODUCT_PRODUCT_PROPERTIES += \
     is_expressive_design_enabled=true
 
+# GameSpace
+PRODUCT_PACKAGES += \
+    GameSpace
+
 # Overlays
 PRODUCT_PACKAGES += \
     FrameworkOverlayLumine
