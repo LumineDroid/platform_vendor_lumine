@@ -175,6 +175,10 @@ PRODUCT_PACKAGES += \
     LMOFreeform \
     LMOFreeformSidebar
 
+# OmniJaws
+PRODUCT_PACKAGES += \
+    OmniJaws
+
 # Overlays
 PRODUCT_PACKAGES += \
     FrameworkOverlayLumine
