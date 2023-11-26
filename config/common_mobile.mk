@@ -33,6 +33,9 @@ endif
 PRODUCT_PACKAGES += \
     Launcher3Overlay
 
+PRODUCT_PACKAGES += \
+    OmniJaws
+
 # Extra cmdline tools
 PRODUCT_PACKAGES += \
     unrar \
