@@ -33,6 +33,9 @@ endif
 PRODUCT_PACKAGES += \
     Launcher3Overlay
 
+PRODUCT_PACKAGES += \
+    OmniJaws
+
 TORCH_STR_SUPPORTED ?= true
 
 PRODUCT_PRODUCT_PROPERTIES += \
