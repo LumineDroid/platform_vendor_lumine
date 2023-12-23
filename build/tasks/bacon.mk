@@ -16,7 +16,7 @@ $(LUMINE_FASTBOOT_PACKAGE): $(INTERNAL_UPDATE_PACKAGE_TARGET)
 
 .PHONY: bacon fastboot
 
-bacon: $(LUMINE_OTA_PACKAGE)
+bacon: $(LUMINE_OTA_PACKAGE) $(DEFAULT_GOAL)
 	@printf "╔══════════════════════════════════════╗\n"
 	@printf "║          L U M I N E  D R O I D       ║\n"
 	@printf "║          O T A   B U I L D            ║\n"
@@ -28,7 +28,7 @@ bacon: $(LUMINE_OTA_PACKAGE)
 	@printf "Type    : %s\n" "$(LUMINE_BUILD_TYPE)"
 	@printf "────────────────────────────────────────\n"
 
-fastboot: $(LUMINE_FASTBOOT_PACKAGE)
+fastboot: $(LUMINE_FASTBOOT_PACKAGE) $(DEFAULT_GOAL)
 	@printf "╔══════════════════════════════════════╗\n"
 	@printf "║          L U M I N E  D R O I D       ║\n"
 	@printf "║        F A S T B O O T  B U I L D      ║\n"
