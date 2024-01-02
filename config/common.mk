@@ -71,6 +71,10 @@ endif
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.software.sip.voip.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/android.software.sip.voip.xml
 
+# Cloned app exemption
+PRODUCT_COPY_FILES += \
+    vendor/lumine/prebuilt/common/etc/sysconfig/preinstalled-packages-platform-lumine-product.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/sysconfig/preinstalled-packages-platform-lumine-product.xml
+
 # Credential storage
 PRODUCT_PACKAGES += \
     android.software.credentials.prebuilt.xml
