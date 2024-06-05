@@ -208,6 +208,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     rsync
 
+# Default wifi country code
+PRODUCT_SYSTEM_PROPERTIES += \
+    ro.boot.wificountrycode?=00
+
 # These packages are excluded from user builds
 PRODUCT_PACKAGES_DEBUG += \
     procmem
