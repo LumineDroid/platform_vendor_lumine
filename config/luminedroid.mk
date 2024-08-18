@@ -1,6 +1,9 @@
 # Bootanimation
 include vendor/lineage/config/bootanimation.mk
 
+# Don't dexpreopt prebuilts. (For GMS).
+DONT_DEXPREOPT_PREBUILTS := true
+
 # Enable blur
 TARGET_ENABLE_BLUR ?= true
 ifeq ($(TARGET_ENABLE_BLUR),true)
