@@ -6,7 +6,7 @@
 
 # BlackTheme
 PRODUCT_PACKAGES += \
-    LineageBlackTheme
+    AndroidBlackThemeOverlay
 
 # Bootanimation
 include vendor/lumine/config/bootanimation.mk
