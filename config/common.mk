@@ -224,6 +224,11 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     BatteryStatsViewer
 
+# LMO packages
+PRODUCT_PACKAGES += \
+    LMOFreeform \
+    LMOFreeformSidebar
+
 # Openssh
 PRODUCT_PACKAGES += \
     scp \
