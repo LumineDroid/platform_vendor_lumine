@@ -170,6 +170,11 @@ PRODUCT_PACKAGES += \
     IconShapeTeardropOverlay \
     IconShapeVesselOverlay
 
+# LMOFreeform
+PRODUCT_PACKAGES += \
+    LMOFreeform \
+    LMOFreeformSidebar
+
 # Overlays
 PRODUCT_PACKAGES += \
     FrameworkOverlayLumine
