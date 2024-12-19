@@ -34,6 +34,7 @@ PRODUCT_PACKAGES += \
     Launcher3Overlay
 
 PRODUCT_PACKAGES += \
+    GameSpace \
     OmniJaws
 
 # Extra cmdline tools
