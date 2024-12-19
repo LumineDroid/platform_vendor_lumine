@@ -226,7 +226,8 @@ PRODUCT_COPY_FILES += \
 
 # Lumine Package
 PRODUCT_PACKAGES += \
-    BatteryStatsViewer
+    BatteryStatsViewer \
+    GameSpace
 
 # LMO packages
 PRODUCT_PACKAGES += \
