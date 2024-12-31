@@ -139,6 +139,10 @@ endif
 PRODUCT_PACKAGES += \
     framework_compatibility_matrix.lineage.xml
 
+# Disable default frame rate limit for games
+PRODUCT_PRODUCT_PROPERTIES += \
+    debug.graphics.game_default_frame_rate.disabled=true
+
 # Extra tools
 PRODUCT_PACKAGES += \
     bash \
