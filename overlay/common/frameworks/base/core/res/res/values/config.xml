@@ -208,6 +208,10 @@
         <item>device_personalization_services/Echo__smartspace_outlook_event_source_of_truth=TEXT_ONLY</item>
         <item>device_personalization_services/Echo__smartspace_package_delivery_card_delay_seconds=0</item>
 
+        <!-- Nearby -->
+	<item>nearby/nearby_enable_presence_broadcast_legacy=false</item>
+	<item>nearby/nearby_support_test_app=false</item>
+
         <!-- Notification Assistant (DPS) -->
         <item>notification_assistant/generate_actions=true</item>
         <item>notification_assistant/generate_replies=true</item>
