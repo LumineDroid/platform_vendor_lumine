@@ -109,7 +109,7 @@ PRODUCT_PRODUCT_PROPERTIES += \
 
 # Overlay
 PRODUCT_PRODUCT_PROPERTIES += \
-    ro.boot.vendor.overlay.theme=com.android.internal.systemui.navbar.gestural;com.google.android.systemui.gxoverlay
+    ro.boot.vendor.overlay.theme=com.google.android.systemui.gxoverlay_gms
 
 # Do not include art debug targets
 PRODUCT_ART_TARGET_INCLUDE_DEBUG_BUILD := false
