@@ -1,45 +1,29 @@
-PRODUCT_VERSION_MAJOR = 22
-PRODUCT_VERSION_MINOR = 2
+#
+# Copyright (C) 2025 LumineDroid
+#
+# SPDX-License-Identifier: Apache-2.0
+#
 
-ifeq ($(LINEAGE_VERSION_APPEND_TIME_OF_DAY),true)
-    LINEAGE_BUILD_DATE := $(shell date -u +%Y%m%d_%H%M%S)
-else
-    LINEAGE_BUILD_DATE := $(shell date -u +%Y%m%d)
+LUMINE_BUILD_DATE := $(shell date -u +%Y%m%d-%H%M)
+LUMINE_BUILD_TYPE ?= UNOFFICIAL
+LUMINE_BUILD_VERSION := 1.0
+
+ifeq ($(LUMINE_OFFICIAL),true)
+LUMINE_BUILD_TYPE := OFFICIAL
+
+PRODUCT_PACKAGES += \
+    Updater
+
+PRODUCT_COPY_FILES += \
+    vendor/lumine/prebuilt/common/etc/init/init.lumine-updater.rc:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/init/init.lumine-updater.rc
 endif
 
-# Set LINEAGE_BUILDTYPE from the env RELEASE_TYPE, for jenkins compat
+LUMINE_VERSION := LumineDroid-$(LUMINE_BUILD_VERSION)-$(LUMINE_BUILD)-$(LUMINE_BUILD_TYPE)-$(LUMINE_BUILD_DATE)
 
-ifndef LINEAGE_BUILDTYPE
-    ifdef RELEASE_TYPE
-        # Starting with "LINEAGE_" is optional
-        RELEASE_TYPE := $(shell echo $(RELEASE_TYPE) | sed -e 's|^LINEAGE_||g')
-        LINEAGE_BUILDTYPE := $(RELEASE_TYPE)
-    endif
-endif
-
-# Filter out random types, so it'll reset to UNOFFICIAL
-ifeq ($(filter RELEASE NIGHTLY SNAPSHOT EXPERIMENTAL,$(LINEAGE_BUILDTYPE)),)
-    LINEAGE_BUILDTYPE := UNOFFICIAL
-    LINEAGE_EXTRAVERSION :=
-endif
-
-ifeq ($(LINEAGE_BUILDTYPE), UNOFFICIAL)
-    ifneq ($(TARGET_UNOFFICIAL_BUILD_ID),)
-        LINEAGE_EXTRAVERSION := -$(TARGET_UNOFFICIAL_BUILD_ID)
-    endif
-endif
-
-LINEAGE_VERSION_SUFFIX := $(LINEAGE_BUILD_DATE)-$(LINEAGE_BUILDTYPE)$(LINEAGE_EXTRAVERSION)-$(LINEAGE_BUILD)
-
-# Internal version
-LINEAGE_VERSION := $(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR)-$(LINEAGE_VERSION_SUFFIX)
-
-# Display version
-LINEAGE_DISPLAY_VERSION := $(PRODUCT_VERSION_MAJOR)-$(LINEAGE_VERSION_SUFFIX)
-
-# LineageOS version properties
-PRODUCT_SYSTEM_PROPERTIES += \
-    ro.lineage.version=$(LINEAGE_VERSION) \
-    ro.lineage.display.version=$(LINEAGE_DISPLAY_VERSION) \
-    ro.lineage.build.version=$(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR) \
-    ro.lineage.releasetype=$(LINEAGE_BUILDTYPE)
+PRODUCT_PRODUCT_PROPERTIES += \
+    org.lumine.build.date=$(BUILD_DATE) \
+    org.lumine.build.type=$(LUMINE_BUILD_TYPE) \
+    org.lumine.build.version=$(LUMINE_BUILD_VERSION) \
+    org.lumine.device=$(LUMINE_BUILD) \
+    org.lumine.fingerprint=$(ROM_FINGERPRINT) \
+    org.lumine.version=$(LUMINE_VERSION)
