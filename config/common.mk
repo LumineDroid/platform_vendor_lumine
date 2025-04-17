@@ -3,6 +3,9 @@ $(call inherit-product-if-exists, vendor/extra/product.mk)
 
 PRODUCT_BRAND ?= LumineDroid
 
+# LumineDroid extras
+$(call inherit-product, vendor/lumine-extras/config.mk)
+
 ifeq ($(PRODUCT_GMS_CLIENTID_BASE),)
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     ro.com.google.clientidbase=android-google
