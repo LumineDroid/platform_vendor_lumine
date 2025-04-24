@@ -29,20 +29,17 @@ $(foreach v,$(EXPORT_TO_SOONG),$(eval $(call addVar,$(v))))
 SOONG_CONFIG_NAMESPACES += lumineGlobalVars
 SOONG_CONFIG_lumineGlobalVars += \
     additional_gralloc_10_usage_bits \
-    bootloader_message_offset \
     camera_override_format_from_reserved
 
 # Soong bool variables
 SOONG_CONFIG_lumineGlobalVars_camera_override_format_from_reserved := $(TARGET_CAMERA_OVERRIDE_FORMAT_FROM_RESERVED)
 
 # Set default values
-BOOTLOADER_MESSAGE_OFFSET ?= 0
 TARGET_ADDITIONAL_GRALLOC_10_USAGE_BITS ?= 0
 TARGET_CAMERA_OVERRIDE_FORMAT_FROM_RESERVED ?= false
 
 # Soong value variables
 SOONG_CONFIG_lumineGlobalVars_additional_gralloc_10_usage_bits := $(TARGET_ADDITIONAL_GRALLOC_10_USAGE_BITS)
-SOONG_CONFIG_lumineGlobalVars_bootloader_message_offset := $(BOOTLOADER_MESSAGE_OFFSET)
 
 # Lineage Health HAL
 ifneq ($(TARGET_HEALTH_CHARGING_CONTROL_CHARGING_PATH),)
@@ -90,6 +87,11 @@ ifneq ($(TARGET_TRUST_USB_CONTROL_ENABLE),)
 endif
 ifneq ($(TARGET_TRUST_USB_CONTROL_DISABLE),)
     $(call soong_config_set,lineage_usb,usb_control_disabled,$(TARGET_TRUST_USB_CONTROL_DISABLE))
+endif
+
+# Recovery
+ifneq ($(BOOTLOADER_MESSAGE_OFFSET),)
+    $(call soong_config_set,lineage_recovery,bootloader_message_offset,$(BOOTLOADER_MESSAGE_OFFSET))
 endif
 
 # Surfaceflinger
