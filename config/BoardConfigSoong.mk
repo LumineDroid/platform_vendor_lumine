@@ -61,3 +61,7 @@ endif
 ifneq ($(TARGET_INIT_VENDOR_LIB),)
     $(error TARGET_INIT_VENDOR_LIB is deprecated, please migrate to soong_config_set,libinit,vendor_init_lib)
 endif
+
+ifneq ($(TARGET_CAMERA_SERVICE_EXT_LIB),)
+    $(call soong_config_set,libcameraservice,ext_lib,$(TARGET_CAMERA_SERVICE_EXT_LIB))
+endif
