@@ -6,7 +6,7 @@
 
 LUMINE_BUILD_DATE := $(shell date -u +%Y%m%d-%H%M)
 LUMINE_BUILD_TYPE ?= UNOFFICIAL
-LUMINE_BUILD_VERSION := 2.0
+LUMINE_BUILD_VERSION := $(shell grep 'default.*revision=' .repo/manifests/default.xml | awk -F'revision="refs/tags/android-' '{print $$2}' | awk -F'"' '{print $$1}')
 
 ifeq ($(LUMINE_OFFICIAL),true)
 LUMINE_BUILD_TYPE := OFFICIAL
