@@ -468,6 +468,9 @@
     <!-- If true, the display will be shifted around in ambient mode. -->
     <bool name="config_enableBurnInProtection">true</bool>
 
+    <!-- If supported, are dreams enabled? (by default) -->
+    <bool name="config_dreamsEnabledByDefault">false</bool>
+
     <!-- Whether to enable glanceable hub features on this device. -->
     <bool name="config_glanceableHubEnabled">true</bool>
 
