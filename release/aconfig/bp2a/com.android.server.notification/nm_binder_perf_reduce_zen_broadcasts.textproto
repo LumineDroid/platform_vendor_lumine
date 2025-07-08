@@ -1,6 +1,6 @@
 flag_value {
   package: "com.android.server.notification"
-  name: "cross_app_polite_notifications"
+  name: "nm_binder_perf_reduce_zen_broadcasts"
   state: ENABLED
   permission: READ_ONLY
 }

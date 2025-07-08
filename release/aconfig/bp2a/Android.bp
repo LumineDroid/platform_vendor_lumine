@@ -16,10 +16,16 @@
 aconfig_value_set {
     name: "aconfig_value_set-lumine-bp2a",
     values: [
-        "aconfig-values-bp2a-com.android.settingslib.flags-all",
-        "aconfig-values-bp2a-com.android.systemui.flags-all",
-        "aconfig-values-bp2a-com.android.settings.flags-all",
-        "aconfig-values-bp2a-com.android.server.notification-all",
+        "aconfig-values-bp2a-android.app-all",
+        "aconfig-values-bp2a-android.service.dreams-all",
         "aconfig-values-bp2a-com.android.launcher3-all",
+        "aconfig-values-bp2a-com.android.media.flags-all",
+        "aconfig-values-bp2a-com.android.server.notification-all",
+        "aconfig-values-bp2a-com.android.settings.flags-all",
+        "aconfig-values-bp2a-com.android.settingslib.flags-all",
+        "aconfig-values-bp2a-com.android.settingslib.widget.theme.flags-all",
+        "aconfig-values-bp2a-com.android.systemui-all",
+        "aconfig-values-bp2a-com.android.text.flags-all",
+        "aconfig-values-bp2a-com.android.window.flags-all",
     ],
 }

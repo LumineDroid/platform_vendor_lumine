@@ -1,6 +1,6 @@
 flag_value {
   package: "com.android.server.notification"
-  name: "polite_notifications"
+  name: "notification_lock_screen_settings"
   state: ENABLED
   permission: READ_ONLY
 }
