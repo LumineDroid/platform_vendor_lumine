@@ -25,6 +25,18 @@ else
     $(warning [LUMINE] $(TARGET_PRODUCT): Not found in official list)
 endif
 
+ifeq ($(LUMINE_BUILD_TYPE),OFFICIAL)
+PRODUCT_PACKAGES += \
+    OpenDelta
+
+PRODUCT_COPY_FILES += \
+    vendor/lumine/prebuilt/common/etc/permissions/lumine-privapp-permissions.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/lumine-privapp-permissions.xml \
+    vendor/lumine/prebuilt/common/etc/permissions/lumine-power-whitelist.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/sysconfig/lumine-power-whitelist.xml
+
+$(foreach f,$(wildcard vendor/lumine/prebuilt/common/etc/init/*.rc),\
+    $(eval PRODUCT_COPY_FILES += $(f):$(TARGET_COPY_OUT_SYSTEM)/etc/init/$(notdir $f)))
+endif
+
 # Internal version
 LUMINE_VERSION_SUFFIX := $(LUMINE_BUILD_DATE)-$(LUMINE_BUILD_TYPE)-$(TARGET_PRODUCT)
 LUMINE_VERSION := $(LUMINE_BASE_VERSION)-$(LUMINE_VERSION_SUFFIX)
