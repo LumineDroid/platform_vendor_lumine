@@ -128,3 +128,16 @@ include vendor/lumine/config/version.mk
 -include vendor/lumine-priv/keys/keys.mk
 
 -include $(WORKSPACE)/build_env/image-auto-bits.mk
+
+# OpenDelta
+PRODUCT_PACKAGES += \
+    OpenDelta
+
+# Permissions
+PRODUCT_COPY_FILES += \
+    vendor/lumine/prebuilt/common/etc/permissions/lumine-privapp-permissions.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/lumine-privapp-permissions.xml \
+    vendor/lumine/prebuilt/common/etc/permissions/lumine-power-whitelist.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/sysconfig/lumine-power-whitelist.xml
+
+# Copy all lumine-specific init rc files
+$(foreach f,$(wildcard vendor/lumine/prebuilt/common/etc/init/*.rc),\
+    $(eval PRODUCT_COPY_FILES += $(f):$(TARGET_COPY_OUT_SYSTEM)/etc/init/$(notdir $f)))
