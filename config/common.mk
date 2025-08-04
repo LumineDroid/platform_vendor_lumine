@@ -234,7 +234,8 @@ PRODUCT_PACKAGE_OVERLAYS += \
 
 PRODUCT_PACKAGES += \
     NetworkStackOverlay \
-    PermissionControllerOverlay
+    PermissionControllerOverlay \
+    SettingsOverlayCustom
 
 # Translations
 CUSTOM_LOCALES += \
