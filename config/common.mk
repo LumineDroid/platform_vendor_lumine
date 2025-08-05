@@ -50,6 +50,9 @@ endif
 PRODUCT_PRODUCT_PROPERTIES += persist.sys.strictmode.disable=true
 endif
 
+# GMS
+include vendor/lumine/config/pixel.mk
+
 # Backup Tool
 PRODUCT_COPY_FILES += \
     vendor/lumine/prebuilt/common/bin/backuptool.sh:install/bin/backuptool.sh \
@@ -215,11 +218,6 @@ endif
 
 # Audio files
 $(call inherit-product, vendor/lumine/audio/audio.mk)
-
-# SetupWizard
-PRODUCT_PRODUCT_PROPERTIES += \
-    setupwizard.theme=glif_v4 \
-    setupwizard.feature.day_night_mode_enabled=true
 
 PRODUCT_ENFORCE_RRO_EXCLUDED_OVERLAYS += vendor/lumine/overlay/no-rro
 PRODUCT_PACKAGE_OVERLAYS += \

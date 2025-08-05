@@ -8,11 +8,6 @@ include vendor/lumine/config/aosp_audio.mk
 # Include LumineDroid audio files
 include vendor/lumine/config/lumine_audio.mk
 
-# Default notification/alarm sounds
-PRODUCT_PRODUCT_PROPERTIES += \
-    ro.config.notification_sound=Argon.ogg \
-    ro.config.alarm_alert=Hassium.ogg
-
 # Apps
 PRODUCT_PACKAGES += \
     AvatarPicker \
