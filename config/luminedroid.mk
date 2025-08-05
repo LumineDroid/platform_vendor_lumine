@@ -18,3 +18,6 @@ endif
 # Enable Material Design 3 Expressive
 PRODUCT_PRODUCT_PROPERTIES += \
     is_expressive_design_enabled=true
+
+# GMS
+include vendor/lineage/config/pixel.mk
