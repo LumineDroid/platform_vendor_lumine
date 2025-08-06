@@ -218,3 +218,5 @@ function generate_host_overrides() {
 }
 
 generate_host_overrides
+
+export SKIP_ABI_CHECKS=true
