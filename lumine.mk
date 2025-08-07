@@ -82,6 +82,9 @@ WITH_GMS := true
 $(call inherit-product, vendor/pixel/gms/products/gms.mk)
 $(call inherit-product, vendor/pixel/sounds/products/sounds.mk)
 
+# GameProps
+TARGET_PRODUCT_PROP += vendor/lumine/gameprops/gameprops.prop
+
 # GameSpace
 PRODUCT_PACKAGES += \
     GameSpace
