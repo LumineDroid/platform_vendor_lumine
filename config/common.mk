@@ -247,6 +247,8 @@ PRODUCT_PACKAGES += \
     NetworkStackOverlay \
     PermissionControllerOverlay
 
+DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE += vendor/lumine/config/device_framework_matrix.xml
+
 # Translations
 CUSTOM_LOCALES += \
     ast_ES \
