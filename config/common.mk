@@ -32,6 +32,10 @@ endif
 PRODUCT_COPY_FILES += \
     vendor/lumine/prebuilt/common/etc/sysconfig/preinstalled-packages-platform-lumine-product.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/sysconfig/preinstalled-packages-platform-lumine-product.xml
 
+# Use a generic profile based boot image by default
+PRODUCT_USE_PROFILE_FOR_BOOT_IMAGE := true
+PRODUCT_DEX_PREOPT_BOOT_IMAGE_PROFILE_LOCATION := frameworks/base/boot/boot-image-profile.txt
+
 ifeq ($(TARGET_BUILD_VARIANT),eng)
 # Disable ADB authentication
 PRODUCT_SYSTEM_EXT_PROPERTIES += ro.adb.secure=0
