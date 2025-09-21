@@ -33,6 +33,11 @@ endif
 PRODUCT_PACKAGES += \
     Launcher3Overlay
 
+TORCH_STR_SUPPORTED ?= true
+
+PRODUCT_PRODUCT_PROPERTIES += \
+    persist.sys.torch_str_support=$(TORCH_STR_SUPPORTED)
+
 # Extra cmdline tools
 PRODUCT_PACKAGES += \
     unrar \
