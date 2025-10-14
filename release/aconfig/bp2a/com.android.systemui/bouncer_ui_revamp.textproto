@@ -1,6 +1,0 @@
-flag_value {
-  package: "com.android.systemui"
-  name: "bouncer_ui_revamp"
-  state: ENABLED
-  permission: READ_ONLY
-}
