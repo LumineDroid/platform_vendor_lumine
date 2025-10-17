@@ -6,3 +6,7 @@
 
 # Bootanimation
 include vendor/lumine/config/bootanimation.mk
+
+# Overlays
+PRODUCT_PACKAGES += \
+    FrameworkOverlayLumine
