@@ -18,7 +18,7 @@ def generate_json(target_device, product_out, file_name, build_variant):
     buildprop = os.path.join(product_out, "system", "build.prop")
     version = get_version_from_buildprop(buildprop)
 
-    existing_ota_json = os.path.join(f"./OTA/API", f"{target_device}.json")
+    existing_ota_json = os.path.join(f"./official_devices/API", f"{target_device}.json")
 
     maintainer = ""
     currently_maintained = False
