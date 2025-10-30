@@ -28,3 +28,6 @@ PRODUCT_PACKAGES += \
 
 # GMS
 include vendor/lineage/config/pixel.mk
+
+# LumineDroid Official
+include vendor/lineage/config/luminedroid_official.mk
