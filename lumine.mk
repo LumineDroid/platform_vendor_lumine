@@ -173,3 +173,7 @@ PRODUCT_PACKAGES += \
 # Overlays
 PRODUCT_PACKAGES += \
     FrameworkOverlayLumine
+
+PRODUCT_PACKAGE_OVERLAYS += vendor/lumine/overlay/common
+PRODUCT_ENFORCE_RRO_EXCLUDED_OVERLAYS += \
+    vendor/lumine/overlay/common/packages/apps/Launcher3
