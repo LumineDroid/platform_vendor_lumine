@@ -1,10 +1,11 @@
 # Allow vendor/extra to override any property by setting it first
 $(call inherit-product-if-exists, vendor/extra/product.mk)
+$(call inherit-product-if-exists, vendor/lumine/lumine.mk)
 
 # Allow vendor prebuilt repos to exclude themselves from bp scanning
 -include $(sort $(wildcard vendor/*/*/exclude-bp.mk))
 
-PRODUCT_BRAND ?= LineageOS
+PRODUCT_BRAND ?= LumineDroid
 
 ifeq ($(PRODUCT_GMS_CLIENTID_BASE),)
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
@@ -130,9 +131,6 @@ endif
 # Bootanimation
 TARGET_SCREEN_WIDTH ?= 1080
 TARGET_SCREEN_HEIGHT ?= 1920
-PRODUCT_PACKAGES += \
-    bootanimation.zip \
-    bootanimation-dark.zip
 
 # Lineage packages
 ifeq ($(PRODUCT_IS_ATV),)
@@ -143,8 +141,7 @@ endif
 
 ifeq ($(PRODUCT_IS_AUTOMOTIVE),)
 PRODUCT_PACKAGES += \
-    LineageParts \
-    LineageSetupWizard
+    LineageParts
 endif
 
 PRODUCT_PACKAGES += \
@@ -250,21 +247,12 @@ PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     debug.sf.enable_transaction_tracing=false
 endif
 
-# Audio files
-$(call inherit-product, vendor/lineage/audio/audio.mk)
-
-# SetupWizard
-PRODUCT_PRODUCT_PROPERTIES += \
-    setupwizard.theme=glif_v4 \
-    setupwizard.feature.day_night_mode_enabled=true
-
 PRODUCT_ENFORCE_RRO_EXCLUDED_OVERLAYS += vendor/lineage/overlay/no-rro
 PRODUCT_PACKAGE_OVERLAYS += \
     vendor/lineage/overlay/common \
     vendor/lineage/overlay/no-rro
 
 PRODUCT_PACKAGES += \
-    DocumentsUIOverlay \
     NetworkStackOverlay \
     PermissionControllerOverlay
 
@@ -288,4 +276,3 @@ include vendor/lineage/config/version.mk
 -include vendor/lineage-priv/keys/keys.mk
 
 -include $(WORKSPACE)/build_env/image-auto-bits.mk
--include vendor/lineage/config/partner_gms.mk
