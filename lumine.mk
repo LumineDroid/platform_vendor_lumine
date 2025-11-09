@@ -4,6 +4,10 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
+# BlackTheme
+PRODUCT_PACKAGES += \
+    LineageBlackTheme
+
 # Bootanimation
 include vendor/lumine/config/bootanimation.mk
 
