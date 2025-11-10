@@ -77,6 +77,11 @@ $(call inherit-product-if-exists, external/google-fonts/rubik/fonts.mk)
 PRODUCT_COPY_FILES += \
     $(call find-copy-subdir-files,*,vendor/lumine/prebuilt/product/fonts,$(TARGET_COPY_OUT_PRODUCT)/fonts)
 
+# Google Apps
+WITH_GMS := true
+$(call inherit-product, vendor/pixel/gms/products/gms.mk)
+$(call inherit-product, vendor/pixel/sounds/products/sounds.mk)
+
 # GameSpace
 PRODUCT_PACKAGES += \
     GameSpace
