@@ -11,6 +11,107 @@ PRODUCT_PACKAGES += \
 # Bootanimation
 include vendor/lumine/config/bootanimation.mk
 
+# Clocks
+PRODUCT_PACKAGES += \
+    SystemUIClocks-BigNum \
+    SystemUIClocks-Calligraphy \
+    SystemUIClocks-Flex \
+    SystemUIClocks-Growth \
+    SystemUIClocks-Inflate \
+    SystemUIClocks-Metro \
+    SystemUIClocks-NumOverlap
+
+PRODUCT_PACKAGES += \
+    ClockFontACFilmstripOverlay \
+    ClockFontAccuratistOverlay \
+    ClockFontAclonicaOverlay \
+    ClockFontAlmonteSnowOverlay \
+    ClockFontAlphaCloudsOverlay \
+    ClockFontAlphaFlowersOverlay \
+    ClockFontAlphaWoodOverlay \
+    ClockFontAmaranteOverlay \
+    ClockFontAmpad3D2Overlay \
+    ClockFontBariolOverlay \
+    ClockFontBetsyFlanaganOverlay \
+    ClockFontBigCheeseOverlay \
+    ClockFontBrandayolqOverlay \
+    ClockFontBudmoJigglerOverlay \
+    ClockFontBunnyRabbitsOverlay \
+    ClockFontCFBadNewsOverlay \
+    ClockFontCFOneTwoTreesOverlay \
+    ClockFontCagliostroOverlay \
+    ClockFontCatOverlay \
+    ClockFontCoconOverlay \
+    ClockFontComfortaaOverlay \
+    ClockFontComicSansOverlay \
+    ClockFontConcentrateOverlay \
+    ClockFontCookieRunOverlay \
+    ClockFontCoolstoryOverlay \
+    ClockFontCrackmanOverlay \
+    ClockFontDiscoMidnightOverlay \
+    ClockFontEasterBunnyOverlay \
+    ClockFontEditPointsFilledOverlay \
+    ClockFontEditPointsOverlay \
+    ClockFontElriott2Overlay \
+    ClockFontExotwoOverlay \
+    ClockFontFibographyOverlay \
+    ClockFontFifa2018Overlay \
+    ClockFontFloorlightOverlay \
+    ClockFontGautsMotelUpperRightOverlay \
+    ClockFontGoogleSansFlexOverlay \
+    ClockFontGrandHotelOverlay \
+    ClockFontHangedOverlay \
+    ClockFontHarmonySansOverlay \
+    ClockFontHotSweatOverlay \
+    ClockFontKGOnlyHopeOverlay \
+    ClockFontKaramuruhOverlay \
+    ClockFontKingthingsOverlay \
+    ClockFontLMSCliffordOverlay \
+    ClockFontLatoOverlay \
+    ClockFontLinotteOverlay \
+    ClockFontLittleBunnyOverlay \
+    ClockFontLowerAtmosphereOverlay \
+    ClockFontMessingLetternOverlay \
+    ClockFontMonbijouxClownpieceOverlay \
+    ClockFontMotorola \
+    ClockFontNeonDiscoOverlay \
+    ClockFontNinjasOverlay \
+    ClockFontNokiaPureOverlay \
+    ClockFontNunitoOverlay \
+    ClockFontOneplusSansOverlay \
+    ClockFontOneplusSlateOverlay \
+    ClockFontOswaldOverlay \
+    ClockFontPinewoodOverlay \
+    ClockFontPlaidEventOverlay \
+    ClockFontPlantsLettersOverlay \
+    ClockFontPlayOverlay \
+    ClockFontQuandoOverlay \
+    ClockFontQuickSouthOverlay \
+    ClockFontRedressedOverlay \
+    ClockFontReemKufiOverlay \
+    ClockFontRemponkOverlay \
+    ClockFontRobotoCondensedOverlay \
+    ClockFontRomantiquesOverlay \
+    ClockFontRoundheadsOverlay \
+    ClockFontRubikOverlay \
+    ClockFontSamsungOneOverlay \
+    ClockFontSansSerifOverlay \
+    ClockFontScrapItUpOverlay \
+    ClockFontSonySketchOverlay \
+    ClockFontSpaceGameOverlay \
+    ClockFontStandardHeaderOverlay \
+    ClockFontStoropiaOverlay \
+    ClockFontSurferOverlay \
+    ClockFontTh3machineOverlay \
+    ClockFontUbuntuOverlay \
+    ClockFontVtksdura3dOverlay \
+    ClockFontZnikomitNo24Overlay \
+    ClockFontIOSOverlay \
+    ClockFontHerculesOverlay \
+    ClockFontSlimOverlay \
+    ClockFontNtype82Overlay \
+    ClockFontSubwayOverlay
+
 # Enable blur
 TARGET_ENABLE_BLUR ?= true
 ifeq ($(TARGET_ENABLE_BLUR),true)
