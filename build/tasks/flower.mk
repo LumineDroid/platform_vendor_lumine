@@ -14,16 +14,16 @@
 # limitations under the License.
 
 # -----------------------------------------------------------------
-# Lineage OTA update package
+# LumineDroid OTA update package
 
-LINEAGE_TARGET_PACKAGE := $(PRODUCT_OUT)/lineage-$(LINEAGE_VERSION).zip
+LUMINE_TARGET_PACKAGE := $(PRODUCT_OUT)/LumineDroid-$(LUMINE_VERSION).zip
 
 SHA256 := prebuilts/build-tools/path/$(HOST_PREBUILT_TAG)/sha256sum
 
-$(LINEAGE_TARGET_PACKAGE): $(INTERNAL_OTA_PACKAGE_TARGET)
-	$(hide) ln -f $(INTERNAL_OTA_PACKAGE_TARGET) $(LINEAGE_TARGET_PACKAGE)
-	$(hide) $(SHA256) $(LINEAGE_TARGET_PACKAGE) | sed "s|$(PRODUCT_OUT)/||" > $(LINEAGE_TARGET_PACKAGE).sha256sum
-	@echo "Package Complete: $(LINEAGE_TARGET_PACKAGE)" >&2
+$(LUMINE_TARGET_PACKAGE): $(INTERNAL_OTA_PACKAGE_TARGET)
+	$(hide) ln -f $(INTERNAL_OTA_PACKAGE_TARGET) $(LUMINE_TARGET_PACKAGE)
+	$(hide) $(SHA256) $(LUMINE_TARGET_PACKAGE) | sed "s|$(PRODUCT_OUT)/||" > $(LUMINE_TARGET_PACKAGE).sha256sum
+	@echo "Package Complete: $(LUMINE_TARGET_PACKAGE)" >&2
 
-.PHONY: bacon
-bacon: $(LINEAGE_TARGET_PACKAGE) $(DEFAULT_GOAL)
+.PHONY: flower
+flower: $(LUMINE_TARGET_PACKAGE) $(DEFAULT_GOAL)
