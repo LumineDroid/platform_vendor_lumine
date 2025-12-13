@@ -85,10 +85,6 @@
         <item>com.google.android.as/com.google.android.apps.miphone.aiai.translate.settings.settingsui.AutoTranslateSetupLanguageActivity</item>
         <item>com.google.android.as/com.google.android.apps.miphone.aiai.translate.settings.settingsui.SettingsSummaryContentProvider</item>
         <item>com.google.android.as/com.google.android.apps.miphone.aiai.translate.setupui.TranslateSetupActivity</item>
-	<!-- GPSU -->
-        <item>com.android.vending/com.google.android.finsky.systemupdate.SystemUpdateSettingsContentProvider</item>
-        <item>com.android.vending/com.google.android.finsky.systemupdateactivity.SettingsSecurityEntryPoint</item>
-        <item>com.android.vending/com.google.android.finsky.systemupdateactivity.SystemUpdateActivity</item>
     </string-array>
 
     <!-- Set this to true to enable the platform's auto-power-save modes like doze and
