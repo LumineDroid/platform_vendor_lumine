@@ -20,20 +20,20 @@ LUMINE_TARGET_PACKAGE := $(PRODUCT_OUT)/LumineDroid-$(LUMINE_VERSION).zip
 LUMINE_TARGET_UPDATEPACKAGE := $(PRODUCT_OUT)/LumineDroid-$(LUMINE_VERSION)-img.zip
 LUMINE_BUILD_TIME := 
 
-MD5 := prebuilts/build-tools/path/$(HOST_PREBUILT_TAG)/md5sum
+SHA256 := prebuilts/build-tools/path/$(HOST_PREBUILT_TAG)/sha256sum
 
 .PHONY: flower-release
 flower-release: $(DEFAULT_GOAL) $(INTERNAL_OTA_PACKAGE_TARGET) $(INTERNAL_UPDATE_PACKAGE_TARGET)
 	$(hide) ln -f $(INTERNAL_OTA_PACKAGE_TARGET) $(LUMINE_TARGET_PACKAGE)
-	$(hide) $(MD5) $(LUMINE_TARGET_PACKAGE) > $(LUMINE_TARGET_PACKAGE).md5sum
+	$(hide) $(SHA256) $(LUMINE_TARGET_PACKAGE) > $(LUMINE_TARGET_PACKAGE).sha256sum
 	$(hide) source ./vendor/lumine/build/tools/generate_json_build_info.sh $(LUMINE_TARGET_PACKAGE)
 	$(hide) ln -f $(INTERNAL_UPDATE_PACKAGE_TARGET) $(LUMINE_TARGET_UPDATEPACKAGE)
-	$(hide) $(MD5) $(LUMINE_TARGET_UPDATEPACKAGE) > $(LUMINE_TARGET_UPDATEPACKAGE).md5sum
+	$(hide) $(SHA256) $(LUMINE_TARGET_UPDATEPACKAGE) > $(LUMINE_TARGET_UPDATEPACKAGE).sha256sum
 	@echo -e ${C								                         "${CL_BLU}
 	@echo -e ${CL_BLU}"                                                                              "${CL_BLU}
 	@echo -e ${CL_CYN}"=============================-OTA Package Details-============================"${CL_RST}
 	@echo -e ${CL_CYN}"OutputZip      : "${CL_MAG} $(LUMINE_TARGET_PACKAGE)${CL_RST}
-	@echo -e ${CL_CYN}"MD5            : "${CL_MAG}" $(shell cat $(LUMINE_TARGET_PACKAGE).md5sum | awk '{print $$1}')"${CL_RST}
+	@echo -e ${CL_CYN}"SHA256            : "${CL_MAG}" $(shell cat $(LUMINE_TARGET_PACKAGE).sha256sum | awk '{print $$1}')"${CL_RST}
 	@echo -e ${CL_CYN}"Size           : "${CL_MAG}" $(shell du -hs $(LUMINE_TARGET_PACKAGE) | awk '{print $$1}')"${CL_RST}
 	@echo -e ${CL_CYN}"Size(in bytes) : "${CL_MAG}" $(shell wc -c $(LUMINE_TARGET_PACKAGE) | awk '{print $$1}')"${CL_RST}
 	@echo -e ${CL_CYN}"Build Type     : "${CL_MAG} $(LUMINE_BUILD_TYPE)${CL_RST}
@@ -41,7 +41,7 @@ flower-release: $(DEFAULT_GOAL) $(INTERNAL_OTA_PACKAGE_TARGET) $(INTERNAL_UPDATE
 	@echo -e ""
 	@echo -e ${CL_CYN}"============================-Fastboot Package Details-=============================="${CL_RST}
 	@echo -e ${CL_CYN}"OutputZip      : "${CL_MAG} $(LUMINE_TARGET_UPDATEPACKAGE)${CL_RST}
-	@echo -e ${CL_CYN}"MD5            : "${CL_MAG}" $(shell cat $(LUMINE_TARGET_UPDATEPACKAGE).md5sum | awk '{print $$1}')"${CL_RST} 
+	@echo -e ${CL_CYN}"SHA256            : "${CL_MAG}" $(shell cat $(LUMINE_TARGET_UPDATEPACKAGE).sha256sum | awk '{print $$1}')"${CL_RST} 
 	@echo -e ${CL_CYN}"Size           : "${CL_MAG}" $(shell du -hs $(LUMINE_TARGET_UPDATEPACKAGE) | awk '{print $$1}')"${CL_RST}
 	@echo -e ${CL_CYN}"Size(in bytes) : "${CL_MAG}" $(shell wc -c $(LUMINE_TARGET_UPDATEPACKAGE) | awk '{print $$1}')"${CL_RST} 
 	@echo -e ${CL_CYN}"Build Type     : "${CL_MAG} $(LUMINE_BUILD_TYPE)${CL_RST}
