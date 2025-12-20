@@ -252,7 +252,8 @@ CUSTOM_LOCALES += \
     ast_ES \
     gd_GB \
     cy_GB \
-    fur_IT
+    fur_IT \
+    nn_NO
 
 PRODUCT_EXTRA_RECOVERY_KEYS += \
     vendor/lumine/build/target/product/security/lumine
