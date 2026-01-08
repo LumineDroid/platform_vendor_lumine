@@ -215,15 +215,20 @@ endif
 # Audio files
 $(call inherit-product, vendor/lumine/audio/audio.mk)
 
-PRODUCT_ENFORCE_RRO_EXCLUDED_OVERLAYS += vendor/lumine/overlay/no-rro
+# Overlays
 PRODUCT_PACKAGE_OVERLAYS += \
-    vendor/lumine/overlay/common \
-    vendor/lumine/overlay/no-rro
+    vendor/lumine/overlay/frameworks
 
 PRODUCT_PACKAGES += \
+    DialerOverlay \
     DocumentsUIOverlay \
+    FrameworksOverlay \
     NetworkStackOverlay \
-    PermissionControllerOverlay
+    PermissionControllerOverlay \
+    SettingsOverlay \
+    SettingsLibOverlay \
+    SettingsProviderOverlay \
+    SystemUIOverlay
 
 # Translations
 CUSTOM_LOCALES += \

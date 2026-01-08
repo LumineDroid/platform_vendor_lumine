@@ -1,0 +1,11 @@
+//
+// SPDX-FileCopyrightText: 2026 LumineDroid
+// SPDX-License-Identifier: Apache-2.0
+//
+
+runtime_resource_overlay {
+    name: "SettingsLibOverlay",
+    theme: "SettingsLibOverlay",
+    product_specific: true,
+    sdk_version: "current",
+}
