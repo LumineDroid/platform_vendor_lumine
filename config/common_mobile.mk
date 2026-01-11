@@ -5,11 +5,6 @@ $(call inherit-product, vendor/lumine/config/common.mk)
 $(call inherit-product-if-exists, frameworks/base/data/sounds/AudioPackage14.mk)
 include vendor/lumine/config/aosp_audio.mk
 
-# Default notification/alarm sounds
-PRODUCT_PRODUCT_PROPERTIES += \
-    ro.config.notification_sound=Argon.ogg \
-    ro.config.alarm_alert=Hassium.ogg
-
 # Apps
 ifneq ($(PRODUCT_NO_CAMERA),true)
 PRODUCT_PACKAGES += \
@@ -42,6 +37,11 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     unrar \
     zstd
+
+# Google Apps
+WITH_GMS := true
+$(call inherit-product, vendor/pixel/gms/products/gms.mk)
+$(call inherit-product, vendor/pixel/sounds/products/sounds.mk)
 
 # Media
 PRODUCT_PRODUCT_PROPERTIES += \
