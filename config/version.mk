@@ -27,14 +27,10 @@ endif
 
 ifeq ($(LUMINE_BUILD_TYPE),OFFICIAL)
 PRODUCT_PACKAGES += \
-    OpenDelta
+    Updater
 
 PRODUCT_COPY_FILES += \
-    vendor/lumine/prebuilt/common/etc/permissions/lumine-privapp-permissions.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/lumine-privapp-permissions.xml \
-    vendor/lumine/prebuilt/common/etc/permissions/lumine-power-whitelist.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/sysconfig/lumine-power-whitelist.xml
-
-$(foreach f,$(wildcard vendor/lumine/prebuilt/common/etc/init/*.rc),\
-    $(eval PRODUCT_COPY_FILES += $(f):$(TARGET_COPY_OUT_SYSTEM)/etc/init/$(notdir $f)))
+    vendor/lumine/prebuilt/common/etc/init/init.luminedroid-updater.rc:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/init/init.luminedroid-updater.rc
 endif
 
 # Internal version

@@ -8,7 +8,7 @@ $(LUMINE_OTA_PACKAGE): $(INTERNAL_OTA_PACKAGE_TARGET)
 	$(hide) ln -f $(INTERNAL_OTA_PACKAGE_TARGET) $(LUMINE_OTA_PACKAGE)
 	$(hide) $(SHA256) $(LUMINE_OTA_PACKAGE) > $(LUMINE_OTA_PACKAGE).sha256sum
 ifeq ($(LUMINE_BUILD_TYPE),OFFICIAL)
-	$(hide) source ./vendor/lumine/build/tools/generate_json_build_info.sh $(LUMINE_OTA_PACKAGE)
+	$(hide) ./vendor/lumine/build/tools/createjson.py $(TARGET_DEVICE) $(PRODUCT_OUT) LumineDroid-$(LUMINE_TARGET).zip $(TARGET_BUILD_VARIANT)
 endif
 
 $(LUMINE_FASTBOOT_PACKAGE): $(INTERNAL_UPDATE_PACKAGE_TARGET)
