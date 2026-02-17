@@ -40,8 +40,7 @@ PRODUCT_PACKAGES += \
 
 # Google Apps
 WITH_GMS := true
-$(call inherit-product, vendor/pixel/gms/products/gms.mk)
-$(call inherit-product, vendor/pixel/sounds/products/sounds.mk)
+$(call inherit-product, vendor/gms/products/gms.mk)
 
 # Media
 PRODUCT_PRODUCT_PROPERTIES += \
