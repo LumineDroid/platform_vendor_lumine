@@ -25,6 +25,14 @@ else
     $(warning [LUMINE] $(TARGET_PRODUCT): Not found in official list)
 endif
 
+ifeq ($(LUMINE_BUILD_TYPE),OFFICIAL)
+PRODUCT_PACKAGES += \
+    Updater
+
+PRODUCT_COPY_FILES += \
+    vendor/lumine/prebuilt/common/etc/init/init.luminedroid-updater.rc:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/init/init.luminedroid-updater.rc
+endif
+
 # Internal version
 LUMINE_VERSION_SUFFIX := $(LUMINE_BUILD_DATE)-$(LUMINE_BUILD_TYPE)-$(TARGET_PRODUCT)
 LUMINE_VERSION := $(LUMINE_BASE_VERSION)-$(LUMINE_VERSION_SUFFIX)
