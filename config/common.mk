@@ -7,7 +7,7 @@ PRODUCT_SOURCE_ROOT_DIRS += -kernel/platform
 # Allow vendor prebuilt repos to exclude themselves from bp scanning
 -include $(sort $(wildcard vendor/*/*/exclude-bp.mk))
 
-PRODUCT_BRAND ?= LineageOS
+PRODUCT_BRAND ?= LumineDroid
 
 ifeq ($(PRODUCT_GMS_CLIENTID_BASE),)
 PRODUCT_PRODUCT_PROPERTIES += \
@@ -48,20 +48,20 @@ endif
 
 # Backup Tool
 PRODUCT_COPY_FILES += \
-    vendor/lineage/prebuilt/common/bin/backuptool.sh:install/bin/backuptool.sh \
-    vendor/lineage/prebuilt/common/bin/backuptool.functions:install/bin/backuptool.functions
+    vendor/lumine/prebuilt/common/bin/backuptool.sh:install/bin/backuptool.sh \
+    vendor/lumine/prebuilt/common/bin/backuptool.functions:install/bin/backuptool.functions
 
 PRODUCT_PACKAGES += \
-    50-lineage.sh
+    50-lumine.sh
 
 PRODUCT_ARTIFACT_PATH_REQUIREMENT_ALLOWED_LIST += \
-    system/addon.d/50-lineage.sh
+    system/addon.d/50-lumine.sh
 
 ifneq ($(strip $(AB_OTA_PARTITIONS) $(AB_OTA_POSTINSTALL_CONFIG)),)
 PRODUCT_COPY_FILES += \
-    vendor/lineage/prebuilt/common/bin/backuptool_ab.sh:$(TARGET_COPY_OUT_SYSTEM)/bin/backuptool_ab.sh \
-    vendor/lineage/prebuilt/common/bin/backuptool_ab.functions:$(TARGET_COPY_OUT_SYSTEM)/bin/backuptool_ab.functions \
-    vendor/lineage/prebuilt/common/bin/backuptool_postinstall.sh:$(TARGET_COPY_OUT_SYSTEM)/bin/backuptool_postinstall.sh
+    vendor/lumine/prebuilt/common/bin/backuptool_ab.sh:$(TARGET_COPY_OUT_SYSTEM)/bin/backuptool_ab.sh \
+    vendor/lumine/prebuilt/common/bin/backuptool_ab.functions:$(TARGET_COPY_OUT_SYSTEM)/bin/backuptool_ab.functions \
+    vendor/lumine/prebuilt/common/bin/backuptool_postinstall.sh:$(TARGET_COPY_OUT_SYSTEM)/bin/backuptool_postinstall.sh
 
 PRODUCT_ARTIFACT_PATH_REQUIREMENT_ALLOWED_LIST += \
     system/bin/backuptool_ab.sh \
@@ -73,14 +73,6 @@ PRODUCT_PRODUCT_PROPERTIES += \
     ro.ota.allow_downgrade=true
 endif
 endif
-
-# Lineage-specific broadcast actions whitelist
-PRODUCT_COPY_FILES += \
-    vendor/lineage/config/permissions/lineage-sysconfig.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/sysconfig/lineage-sysconfig.xml
-
-# Lineage-specific init rc file
-PRODUCT_COPY_FILES += \
-    vendor/lineage/prebuilt/common/etc/init/init.lineage-system_ext.rc:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/init/init.lineage-system_ext.rc
 
 # Enable SIP+VoIP on all targets
 PRODUCT_COPY_FILES += \
@@ -96,20 +88,11 @@ PRODUCT_COPY_FILES += \
 
 # Component overrides
 PRODUCT_PACKAGES += \
-    lineage-component-overrides.xml
-
-# This is Lineage!
-PRODUCT_COPY_FILES += \
-    vendor/lineage/config/permissions/org.lineageos.android.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/org.lineageos.android.xml
+    lumine-component-overrides.xml
 
 # Enforce privapp-permissions whitelist
 PRODUCT_PRODUCT_PROPERTIES += \
     ro.control_privapp_permissions=enforce
-
-ifneq ($(TARGET_DISABLE_LINEAGE_SDK), true)
-# Lineage SDK
-include vendor/lineage/config/lineage_sdk_common.mk
-endif
 
 # Do not include art debug targets
 PRODUCT_ART_TARGET_INCLUDE_DEBUG_BUILD := false
@@ -132,43 +115,16 @@ ifneq ($(TARGET_DISABLE_EPPE),true)
 $(call enforce-product-packages-exist-internal,$(lastword $(_include_stack)),product_manifest.xml rild Calendar android.hidl.memory@1.0-impl.vendor vndk_apex_snapshot_package)
 endif
 
-# Bootanimation
-TARGET_SCREEN_WIDTH ?= 1080
-TARGET_SCREEN_HEIGHT ?= 1920
-PRODUCT_PACKAGES += \
-    bootanimation.zip \
-    bootanimation-dark.zip
-
 # Lineage interfaces
 PRODUCT_PACKAGES += \
     framework_compatibility_matrix.lineage.xml
-
-# Lineage packages
-ifeq ($(PRODUCT_IS_ATV),)
-PRODUCT_PACKAGES += \
-    ExactCalculator \
-    Jelly
-endif
-
-ifeq ($(PRODUCT_IS_AUTOMOTIVE),)
-PRODUCT_PACKAGES += \
-    LineageParts \
-    LineageSetupWizard
-endif
-
-PRODUCT_PACKAGES += \
-    LineageSettingsProvider \
-    Updater
-
-PRODUCT_COPY_FILES += \
-    vendor/lineage/prebuilt/common/etc/init/init.lineage-updater.rc:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/init/init.lineage-updater.rc
 
 # Config
 PRODUCT_PACKAGES += \
     SimpleDeviceConfig \
     SimpleSettingsConfig
 
-# Extra tools in Lineage
+# Extra tools
 PRODUCT_PACKAGES += \
     bash \
     curl \
@@ -202,7 +158,7 @@ PRODUCT_ARTIFACT_PATH_REQUIREMENT_ALLOWED_LIST += \
 
 # FRP
 PRODUCT_COPY_FILES += \
-    vendor/lineage/prebuilt/common/bin/wipe-frp.sh:$(TARGET_COPY_OUT_RECOVERY)/root/system/bin/wipe-frp
+    vendor/lumine/prebuilt/common/bin/wipe-frp.sh:$(TARGET_COPY_OUT_RECOVERY)/root/system/bin/wipe-frp
 
 # Openssh
 PRODUCT_PACKAGES += \
@@ -215,7 +171,7 @@ PRODUCT_PACKAGES += \
     start-ssh
 
 PRODUCT_COPY_FILES += \
-    vendor/lineage/prebuilt/common/etc/init/init.openssh.rc:$(TARGET_COPY_OUT_PRODUCT)/etc/init/init.openssh.rc
+    vendor/lumine/prebuilt/common/etc/init/init.openssh.rc:$(TARGET_COPY_OUT_PRODUCT)/etc/init/init.openssh.rc
 
 # rsync
 PRODUCT_PACKAGES += \
@@ -261,17 +217,17 @@ PRODUCT_PRODUCT_PROPERTIES += \
 endif
 
 # Audio files
-$(call inherit-product, vendor/lineage/audio/audio.mk)
+$(call inherit-product, vendor/lumine/audio/audio.mk)
 
 # SetupWizard
 PRODUCT_PRODUCT_PROPERTIES += \
     setupwizard.theme=glif_v4 \
     setupwizard.feature.day_night_mode_enabled=true
 
-PRODUCT_ENFORCE_RRO_EXCLUDED_OVERLAYS += vendor/lineage/overlay/no-rro
+PRODUCT_ENFORCE_RRO_EXCLUDED_OVERLAYS += vendor/lumine/overlay/no-rro
 PRODUCT_PACKAGE_OVERLAYS += \
-    vendor/lineage/overlay/common \
-    vendor/lineage/overlay/no-rro
+    vendor/lumine/overlay/common \
+    vendor/lumine/overlay/no-rro
 
 PRODUCT_PACKAGES += \
     DocumentsUIOverlay \
@@ -288,15 +244,11 @@ CUSTOM_LOCALES += \
     fur_IT \
     nn_NO
 
-PRODUCT_ENFORCE_RRO_EXCLUDED_OVERLAYS += vendor/crowdin/overlay
-PRODUCT_PACKAGE_OVERLAYS += vendor/crowdin/overlay
-
 PRODUCT_EXTRA_RECOVERY_KEYS += \
-    vendor/lineage/build/target/product/security/lineage
+    vendor/lumine/build/target/product/security/lumine
 
-include vendor/lineage/config/version.mk
+include vendor/lumine/config/version.mk
 
--include vendor/lineage-priv/keys/keys.mk
+-include vendor/lumine-priv/keys/keys.mk
 
 -include $(WORKSPACE)/build_env/image-auto-bits.mk
--include vendor/lineage/config/partner_gms.mk

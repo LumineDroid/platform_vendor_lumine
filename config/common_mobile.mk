@@ -1,12 +1,12 @@
-# Inherit common mobile Lineage stuff
-$(call inherit-product, vendor/lineage/config/common.mk)
+# Inherit common mobile LumineDroid stuff
+$(call inherit-product, vendor/lumine/config/common.mk)
 
 # Include AOSP audio files
 $(call inherit-product-if-exists, frameworks/base/data/sounds/AudioPackage14.mk)
-include vendor/lineage/config/aosp_audio.mk
+include vendor/lumine/config/aosp_audio.mk
 
-# Include Lineage audio files
-include vendor/lineage/config/lineage_audio.mk
+# Include LumineDroid audio files
+include vendor/lumine/config/lumine_audio.mk
 
 # Default notification/alarm sounds
 PRODUCT_PRODUCT_PROPERTIES += \
@@ -16,9 +16,17 @@ PRODUCT_PRODUCT_PROPERTIES += \
 # Apps
 PRODUCT_PACKAGES += \
     AvatarPicker \
-    Backgrounds \
-    Glimpse \
     LatinIME
+
+ifneq ($(PRODUCT_NO_CAMERA),true)
+PRODUCT_PACKAGES += \
+    Aperture
+endif
+
+ifneq ($(TARGET_EXCLUDES_AUDIOFX),true)
+PRODUCT_PACKAGES += \
+    AudioFX
+endif
 
 ifeq ($(PRODUCT_TYPE), go)
 PRODUCT_PACKAGES += \
@@ -37,19 +45,14 @@ endif
 PRODUCT_PACKAGES += \
     Launcher3Overlay
 
-# Charger
+# Extra cmdline tools
 PRODUCT_PACKAGES += \
-    charger_res_images
+    unrar \
+    zstd
 
-ifneq ($(WITH_LINEAGE_CHARGER),false)
-PRODUCT_PACKAGES += \
-    lineage_charger_animation \
-    lineage_charger_animation_vendor
-endif
-
-# Legal
-PRODUCT_PRODUCT_PROPERTIES += \
-    ro.lineagelegal.url=https://lineageos.org/legal
+# Include LumineDroid LatinIME dictionaries
+PRODUCT_PACKAGE_OVERLAYS += vendor/lumine/overlay/dictionaries
+PRODUCT_ENFORCE_RRO_EXCLUDED_OVERLAYS += vendor/lumine/overlay/dictionaries
 
 # Media
 PRODUCT_PRODUCT_PROPERTIES += \
@@ -74,6 +77,5 @@ PRODUCT_ARTIFACT_PATH_REQUIREMENT_ALLOWED_LIST += \
 
 # Themes
 PRODUCT_PACKAGES += \
-    LineageBlackTheme \
     ThemePicker \
     ThemesStub
