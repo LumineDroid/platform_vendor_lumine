@@ -42,11 +42,6 @@ TORCH_STR_SUPPORTED ?= true
 PRODUCT_PRODUCT_PROPERTIES += \
     persist.sys.torch_str_support=$(TORCH_STR_SUPPORTED)
 
-# Extra cmdline tools
-PRODUCT_PACKAGES += \
-    unrar \
-    zstd
-
 # Google Apps
 WITH_GMS := true
 $(call inherit-product, vendor/gms/products/gms.mk)
