@@ -33,9 +33,9 @@ endif
 PRODUCT_PACKAGES += \
     Launcher3Overlay
 
-PRODUCT_PACKAGES += \
-    GameSpace \
-    OmniJaws
+#PRODUCT_PACKAGES += \
+#    GameSpace \
+#    OmniJaws
 
 TORCH_STR_SUPPORTED ?= true
 
@@ -43,8 +43,8 @@ PRODUCT_PRODUCT_PROPERTIES += \
     persist.sys.torch_str_support=$(TORCH_STR_SUPPORTED)
 
 # Google Apps
-WITH_GMS := true
-$(call inherit-product, vendor/gms/products/gms.mk)
+#WITH_GMS := true
+#$(call inherit-product, vendor/gms/products/gms.mk)
 
 # Media
 PRODUCT_PRODUCT_PROPERTIES += \
