@@ -93,6 +93,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PRODUCT_PROPERTIES += \
     ro.control_privapp_permissions=enforce
 
+# Enable background blur for widget picker
+PRODUCT_SYSTEM_EXT_PROPERTIES += \
+    ro.launcher.depth.widget=true
+
 # Flags
 ifeq ($(TARGET_BUILD_VARIANT), user)
     # Strip the local variable table and the local variable type table to reduce
