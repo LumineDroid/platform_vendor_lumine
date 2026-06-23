@@ -43,8 +43,10 @@ PRODUCT_PRODUCT_PROPERTIES += \
     persist.sys.torch_str_support=$(TORCH_STR_SUPPORTED)
 
 # Google Apps
-#WITH_GMS := true
-#$(call inherit-product, vendor/gms/products/gms.mk)
+WITH_GMS := true
+$(call inherit-product, vendor/pixel/clocks/products/clocks.mk)
+$(call inherit-product, vendor/pixel/gms/products/gms.mk)
+$(call inherit-product, vendor/pixel/sounds/products/sounds.mk)
 
 # Media
 PRODUCT_PRODUCT_PROPERTIES += \
