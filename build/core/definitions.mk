@@ -7,6 +7,3 @@ endef
 
 # Include board/platform macros
 include vendor/lumine/build/core/utils.mk
-
-# Include default installed modules
-include vendor/lumine/build/core/default_installed_modules.mk
