@@ -233,7 +233,8 @@ PRODUCT_COPY_FILES += \
 # Lumine Package
 PRODUCT_PACKAGES += \
     BatteryStatsViewer \
-    GameSpace
+    GameSpace \
+    OmniJaws
 
 # LMO packages
 PRODUCT_PACKAGES += \
